@@ -3,7 +3,7 @@ import React from 'react'
 const CommentBox = () => {
     return (
         <div>
-            this is commentBox
+            Comment Box
         </div>
     )
 }
