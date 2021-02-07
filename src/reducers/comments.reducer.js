@@ -1,13 +1,19 @@
-import { SAVE_COMMENT } from 'actions/types';
+import { SAVE_COMMENT, FETCH_COMMENTS } from 'actions/types';
 
-const commentReducer = function(state = [], action) {
-    switch(action.type){
+const commentReducer = function (state = [], action) {
+    switch (action.type) {
         case SAVE_COMMENT:
             return [
                 ...state,
                 action.payload
             ];
-        default: 
+        case FETCH_COMMENTS:
+            const comments = action.payload.data.map(comment => comment.name);
+            return [
+                ...state,
+                ...comments
+            ]
+        default:
             return state;
     }
 }
